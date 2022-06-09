@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>randomCode</title>
+</head>
+
+<script>
+    //1.產生四個數字，可以重覆
+    function randomNum() {
+        var n = Math.floor(Math.random() * 10);
+        return n;
+    }
+    var checkCode1 = "";
+    for(let i = 1 ; i <= 4 ; i++){
+        checkCode1 += String(randomNum());
+    }
+    document.write('隨機數字的驗證碼，可以重複：' + checkCode1 + '<br>');
+
+    //2.產生四個數字，不可重覆
+    var checkCode2 = "";
+    for(let i = 1 ; i <= 4 ; i++){
+        var exist = 0;
+        do {
+            var m = String(randomNum());
+            var exist = checkCode2.indexOf(m);
+            // document.write(m)
+        }while(exist != -1);
+        checkCode2 += m;
+        // document.write(checkCode2+'<br>')
+    }
+    document.write('隨機數字的驗證碼，不可重複：' + checkCode2 + '<br>');
+
+    //3.產生四個由數字和大寫英文字母組成
+    var checkCode3 = "";
+    for(let i = 1 ; i <= 4 ; i++){
+        var c = Math.floor(Math.random()*36)
+        var choice = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+        var exist = 0;
+        do {
+            var m = choice[c];
+            var exist = checkCode3.indexOf(m);
+            // document.write(m)
+        } while(exist != -1);
+        checkCode3 += m;
+    }
+    document.write('隨機英文數字的驗證碼，不可重複：'+ checkCode3)
+
+
+</script>
+
+<body>
+
+</body>
+
+</html>
